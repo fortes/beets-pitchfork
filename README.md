@@ -1,5 +1,7 @@
 # Pitchfork Plugin for Beets
 
+![build status](https://travis-ci.org/fortes/beets-pitchfork.svg?branch=master)
+
 Plugin for [Beets](http://beets.io/) that adds ratings from [Pitchfork](https://pitchfork.com/).
 
 ## Installation
@@ -37,16 +39,13 @@ beet ls -a pitchfork_score:8..10 year:2018
 * `0.0.2`: Use `pitchfork_api` dependency
 * `0.0.1`: First release
 
-## TODO
+## Possible future work
 
+* Auto-fetch review on import
 * Allow manual specification for artist / album query in order to alleviate failures
 * Consider some method of re-trying search if no result found
 * Use [pre-scraped database](https://github.com/nolanbconaway/pitchfork-data) to avoid spamming Pitchfork servers
 * Add `pitchfork_bnm` whenever it's supported by underlying library
-
-## Credits
-
-`pitchfork.py` is from [tejassharma96/pitchfork](https://github.com/tejassharma96/pitchfork), included in this repository temporarily until the upstream package is updated.
 
 ## License
 
