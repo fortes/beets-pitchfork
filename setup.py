@@ -3,9 +3,12 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+with open("requirements.txt", "r") as fr:
+    requirements = fr.read().splitlines()
+
 setuptools.setup(
     name="beets-pitchfork",
-    version="0.0.1",
+    version="0.0.2",
     author="Filipe Fortes",
     author_email="accounts@fortes.com",
     description="Pitchfork rating plugin for beets",
@@ -16,9 +19,7 @@ setuptools.setup(
     platforms='ALL',
     packages=['beetsplug'],
     namespace_packages=['beetsplug'],
-    install_requires=[
-        'beets>=1.4.7',
-    ],
+    install_requires=requirements,
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",

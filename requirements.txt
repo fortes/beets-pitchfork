@@ -1,0 +1,2 @@
+beets>=1.4.7
+pitchfork_api>=0.0.4

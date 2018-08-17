@@ -3,9 +3,7 @@ from beets import ui
 from beets.dbcore import types
 
 from optparse import OptionParser
-# TODO: Use proper package after this issue is resolved:
-# https://github.com/michalczaplinski/pitchfork/pull/13
-from .pitchfork_lib import search
+from pitchfork_api import search
 
 class PitchforkPlugin(BeetsPlugin):
     @property
