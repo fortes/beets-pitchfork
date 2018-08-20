@@ -34,8 +34,16 @@ Use `pitchfork_score` in your queries. You can find this year's highly rated alb
 beet ls -a pitchfork_score:8..10 year:2018
 ```
 
+The following fields are available via this plugin:
+
+* `pitchfork_bnm`: Whether the album was designated [Best New Music](https://pitchfork.com/reviews/best/albums/)
+* `pitchfork_description`: Review summary
+* `pitchfork_score`: Numeric score
+* `pitchfork_url`: Link to the actual review
+
 ## Changelog
 
+* `0.0.3`: Add `pitchfork_bnm`, move back to `pitchfork` library
 * `0.0.2`: Use `pitchfork_api` dependency
 * `0.0.1`: First release
 
@@ -45,7 +53,6 @@ beet ls -a pitchfork_score:8..10 year:2018
 * Allow manual specification for artist / album query in order to alleviate failures
 * Consider some method of re-trying search if no result found
 * Use [pre-scraped database](https://github.com/nolanbconaway/pitchfork-data) to avoid spamming Pitchfork servers
-* Add `pitchfork_bnm` whenever it's supported by underlying library
 
 ## License
 
