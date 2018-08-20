@@ -3,12 +3,13 @@ from beets import ui
 from beets.dbcore import types
 
 from optparse import OptionParser
-from pitchfork_api import search
+from pitchfork import search
 
 class PitchforkPlugin(BeetsPlugin):
     @property
     def album_types(self):
         return  {
+            'pitchfork_bnm': types.BOOLEAN,
             'pitchfork_description': types.STRING,
             'pitchfork_score': types.FLOAT,
             'pitchfork_url': types.STRING
@@ -57,6 +58,7 @@ class PitchforkCommand(ui.Subcommand):
                 continue
 
             message = ui.colorize('text_success', u'found review %s' % review.score())
+            album['pitchfork_bnm'] = review.best_new_music()
             album['pitchfork_description'] = review.abstract()
             album['pitchfork_score'] = score
             album['pitchfork_url'] = 'https://pitchfork.com%s' % review.url
