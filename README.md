@@ -7,6 +7,12 @@ Plugin for [Beets](http://beets.io/) that adds ratings from [Pitchfork](https://
 ## Installation
 
 ```
+pip install beets-pitchfork
+```
+
+To install bleeding edge instead, use:
+
+```
 pip install git+git://github.com/fortes/beets-pitchfork.git@master
 ```
 
@@ -50,6 +56,7 @@ The following fields are available via this plugin:
 
 ## Changelog
 
+* `0.0.5`: Upload to pypi as [`beets-pitchfork`](https://pypi.org/project/beets-pitchfork/)
 * `0.0.4`: Enable auto-fetching review on import
 * `0.0.3`: Add `pitchfork_bnm`, move back to `pitchfork` library
 * `0.0.2`: Use `pitchfork_api` dependency
