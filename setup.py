@@ -8,7 +8,7 @@ with open("requirements.txt", "r") as fr:
 
 setuptools.setup(
     name="beets-pitchfork",
-    version="0.0.4",
+    version="0.0.5",
     author="Filipe Fortes",
     author_email="accounts@fortes.com",
     description="Pitchfork rating plugin for beets",
@@ -18,6 +18,7 @@ setuptools.setup(
     license='MIT',
     platforms='ALL',
     packages=['beetsplug'],
+    include_package_data=True,
     namespace_packages=['beetsplug'],
     install_requires=requirements,
     classifiers=[
