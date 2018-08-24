@@ -5,6 +5,7 @@ from beets.dbcore import types
 from optparse import OptionParser
 from pitchfork import search
 
+
 class PitchforkPlugin(BeetsPlugin):
     def __init__(self):
         super(PitchforkPlugin, self).__init__()
@@ -17,7 +18,7 @@ class PitchforkPlugin(BeetsPlugin):
 
     @property
     def album_types(self):
-        return  {
+        return {
             'pitchfork_bnm': types.BOOLEAN,
             'pitchfork_description': types.STRING,
             'pitchfork_score': types.FLOAT,
@@ -30,35 +31,40 @@ class PitchforkPlugin(BeetsPlugin):
     def on_import(self, lib, album):
         fetch_review(album, self._log, False)
 
+
 class PitchforkCommand(ui.Subcommand):
     def __init__(self, config, log):
         self._log = log
 
         parser = OptionParser(usage='%prog [options] [QUERY...]')
         parser.add_option(
-            '-f', '--force',
-            action='store_true', dest='force', default=False,
-            help=u'force updating review if already present'
-        )
+            '-f',
+            '--force',
+            action='store_true',
+            dest='force',
+            default=False,
+            help=u'force updating review if already present')
 
         super(PitchforkCommand, self).__init__(
             parser=parser,
             name='pitchfork',
-            help=u'get reviews from Pitchfork'
-        )
+            help=u'get reviews from Pitchfork')
 
     def func(self, lib, options, args):
-        self.batch_fetch_reviews(lib, lib.albums(ui.decargs(args)), options.force)
+        self.batch_fetch_reviews(lib, lib.albums(ui.decargs(args)),
+                                 options.force)
 
     def batch_fetch_reviews(self, lib, albums, force):
         """Fetch review for each album"""
         for album in albums:
             fetch_review(album, self._log, force)
 
+
 def fetch_review(album, log, force):
     rating = album.get('pitchfork_score')
     if rating != None and rating != '' and not force:
-        message = ui.colorize('text_highlight_minor', u'has rating %s' % rating)
+        message = ui.colorize('text_highlight_minor',
+                              u'has rating %s' % rating)
         log.info(u'{0}: {1}', album, message)
         return
 
@@ -71,7 +77,7 @@ def fetch_review(album, log, force):
         message = ui.colorize('text_error', u'no review found')
         log.info(u'{0}: {1}', album, message)
         return
-    except Error as e:
+    except Exception as e:
         log.debug(u'Error trying to get review: {0}', e)
         message = ui.colorize('text_error', u'could not fetch review')
         log.info(u'{0}: {1}', album, message)
