@@ -1,2 +1,2 @@
-beets>=1.4.7
-pitchfork>=0.1.5
+beets==1.4.9
+pitchfork==0.1.5
