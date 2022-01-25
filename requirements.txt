@@ -1,2 +1,2 @@
-beets==1.5.0
+beets==1.6.0
 pitchfork==0.1.5
